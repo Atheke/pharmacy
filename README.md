@@ -26,10 +26,6 @@ Use the tool as a helpful resource before seeking professional advice.
 Quickly access emergency services and contacts.
 Share your location with emergency contacts if needed.
 Getting Started
-Download and Installation:
-
-Download HealthHub from the App Store or Google Play Store.
-Install the app on your mobile device.
 Create Your Profile:
 
 Open the app and create your personal medical profile.
