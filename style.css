@@ -1,0 +1,171 @@
+body{
+
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.homepage{
+    display: flex;
+}
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Silkscreen&display=swap');
+
+
+/* styling for user sign in block */
+
+.UserSignIn , .Administrator {
+
+    width: 50vw;
+    height: 100vh;
+}
+
+.UserSignIn{
+    background-color: #3bb398;
+}
+
+.inner-box {
+    font-family: 'Lato', sans-serif;
+    width: 400px;
+    margin: 0 auto;
+    position: relative;
+    top: 40%;
+    transform: translateY(-50%);
+    padding: 20px 40px;
+    padding-top: 80px;
+    border-radius: 8px;
+    z-index: 2;
+    color: #e2ffff;
+    background-color: #3bb398;
+}
+
+.signup-header h1 {
+    font-size: 2.5rem;
+    color: #e2ffff;
+}
+
+.signup-header p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-top: 5px;
+}
+
+.signup-body {
+    margin: 20px 0;
+}
+
+.signup-body p {
+    margin: 10px 0;
+}
+
+.signup-body p label {
+    display: block;
+    font-weight: bold;
+}
+
+.signup-body p input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #cccc;
+    border-radius: 4px;
+}
+.signup-body p input[type="submit"] {
+    background-color: #3bb398;
+    border: 2px solid white;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+.signup-footer p {
+    color: #555;
+    text-align: center;
+}
+
+.signup-footer p a {
+    color: #2773a5;
+}
+
+#submitBtn{
+    background-color: #3bb398;
+    border-radius: 50px;
+    border: 3px solid #e2ffff;
+    color:#e2ffff;
+    font-weight: 500;
+
+}
+
+/* Styling for Administrator register block  starts from here */
+
+.signup-header1{
+    color: #3bb398;
+    font-size: 1.5rem;
+}
+
+.inner-box1{
+    font-family: 'Lato', sans-serif;
+    width: 400px;
+    margin: 0 auto;
+    position: relative;
+    top: 40%;
+    transform: translateY(-50%);
+    padding: 20px 40px;
+    padding-top: 80px;
+    border-radius: 8px;
+    z-index: 2;
+    color: #3bb398;
+    background-color: #ffffff;
+}
+.signup-header1 p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-top: 5px;
+}
+
+.signup-body1 {
+    margin: 20px 0;
+}
+
+.signup-body1 p {
+    margin: 10px 0;
+}
+
+.signup-body1 p label {
+    display: block;
+    font-weight: bold;
+}
+
+.signup-body1 p input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #cccc;
+    background-color: #f3f9f7;
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
+.signup-body1 p input[type="submit"] {
+    background-color: #3bb398;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* .signup-body1 p input[type="submit"]:hover {
+    background-color: #2773a5;
+} */
+
+
+
+
+
+
