@@ -1,5 +1,5 @@
 const mongoose= require('mongoose');
-const MONGO_URL='mongodb+srv://med_data:y4vUvldi0irw2TZs@cluster0.46ygfrx.mongodb.net/cluster0?retryWrites=true&w=majority';
+const MONGO_URL='remove because of securit pupose';
 
 // adding event listeners
 mongoose.connection.once('open',()=>{
