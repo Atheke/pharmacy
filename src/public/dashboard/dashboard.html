@@ -4,67 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="dashboard.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src = "load_scripts.js"4></script>
+    <script src="load_scripts.js" defer></script>
 </head>
 <body>
+   
     <header>
+
+         <div class="navdiv">
+        <nav class="navbar">
+                <div class="logo"><h1>Dashboard</h1></div>            
+        </nav>
+        </div> 
+
         <div class="user-info">
-            <img src="avatar.jpg" alt="User Avatar">
-            <h2 id = "userName">User Name</h2>
+            <!-- <i class="fa-solid fa-user"></i>
+            <h2>User Name</h2> -->
         </div >
         <div class="conatainer">
-        <nav>
+        <nav class="input">
+            <i class="fa-solid fa-user"></i>
+            <h2>User Name</h2>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Logout</a></li>
+                <div class="dashboard-item" id="dashboard"><li><a href="#">Dashboard</a></li></div>
+                <div class="dashboard-item" id="patientHistory"><li><a href="#">Patient History</a></li></div>
+                <div class="dashboard-item" id="currentMedication"><li><a href="#">Current Medication</a></li></div>
+                <div class="dashboard-item" id="patientAllergies"><li><a href="#">Any Allergies</a></li></div>
+                <div class="dashboard-item" id="appointmentScheduler"><li><a href="#">Schedule your Appointments</a></li></div>
+                <div class="dashboard-item" id="healtInfo"><li><a href="#">Health Information and Resources</a></li></div>
+                <div class="dashboard-item" id="checkSymptoms"><li><a href="#">Check Symptoms</a></li></div>
+                <div class="dashboard-item" id="emergencyServices"><li><a href="#">Emergency Services</a></li></div>               
+                <div class="dashboard-item" id="setting"><li><a href="#">Settings</a></li></div>
+                <div class="dashboard-item" id="logout"><li><a href="#" >Logout</a></li></div>
             </ul>
         </nav>
         </div>
     </header>
-
-   
-    <section class="main">
-        <!-- <div class="main_top">
-            <h1>Dashboard</h1>
-        </div>
-
-     <div class="gapp">
-        <div class="main-skill">
-            <div class="card" id="patientHistory">
-                <h3>Patient History</h3>
-            </div>
-            <div class="card" id="currentMedication">
-                <h3>Current Medication</h3>
-            </div>
-            <div class="card" id="anyAllergies">
-                <h3>Any Allergies</h3>
-            </div>
-            <div class="card" id="appointment">
-                <h3>Schedule Your Appointment</h3>
-            </div>
-            </div>
-        <div class="ms_2">
-            <div class="card" id="healtInfo">
-                <h3>Health Information and Resource</h3>
-            </div>
-            <div class="card" id="checkSymptoms">
-                <h3>Check Symptoms</h3>
-            </div>
-            <div class="card" id="emergencyServices">
-                <h3>Emergency Service</h3>
-            </div>
-            <div class="card" id="pornHub">
-                <h3>Do you want Gf</h3>
-            </div>   
-            
-        </div>
-        </div> -->
-    </section>
-
     <script src="ui.js"></script>
 </body>
 </html>
