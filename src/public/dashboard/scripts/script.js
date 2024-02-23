@@ -7,7 +7,21 @@ const healthInfo = document.getElementById('healthInfo');
 const checkSymptoms = document.getElementById('checkSymptoms');
 const emergencyServices = document.getElementById('emergencyServices');
 const logout = document.getElementById('logout');
+const dashboardItems = document.querySelectorAll('.dashboard-item');
 
+dashboardItems.forEach(item => {
+    item.addEventListener('click', function() {
+        // Toggle the 'selected' class on click
+        this.classList.toggle('selected');
+
+        // Deselect other items
+        dashboardItems.forEach(otherItem => {
+            if (otherItem !== this) {
+                otherItem.classList.remove('selected');
+            }
+        });
+    });
+});
 axios.get("/dashboard/username")
 .then(response => {
 			console.log(response);
