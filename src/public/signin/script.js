@@ -26,6 +26,10 @@ axios.post(serverUrl, credentials)
 			window.location.href = '/dashboard'
 		}
 })
+ .catch(error => {
+		console.log(error);
+		document.getElementById('loginStatus').innerText = "Invalid credentials";
+		})
 
 }
 )

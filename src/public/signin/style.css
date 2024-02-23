@@ -105,6 +105,13 @@ body{
 
 }
 
+/* section for invalid credentials*/
+#loginStatus{
+    color: royalblue;
+    font-size: large;
+    font-weight: 500;
+}
+
 /* Styling for Administrator register block  starts from here */
 
 .signup-header1{
