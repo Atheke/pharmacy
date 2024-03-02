@@ -92,3 +92,19 @@ h2{
     font-size: 1rem;
     padding-left: 3%;
 }
+
+/* allergy section */
+.allergy-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30%;
+
+}
+
+allergy-items{
+    font-size: 4em;
+    font-weight: 300;
+}
+
+/* end of allergy section */

@@ -46,11 +46,23 @@ patientAllergies.addEventListener('click' , () => {
 
 	axios.get(endpoint)
 		.then(response => {
+			console.log("request sent");
 			console.log(response);
+			const container = document.querySelector('.container2');
+			const allergy_container = document.createElement('div');
+			allergy_container.classList.add('allergy-container');
+			for(let i = 0 ; i < response.data.length ; i++)
+			{
+				const div = document.createElement('div');
+				div.classList.add('allergy-items');
+				div.innerText = response.data[i];
+				allergy_container.appendChild(div);
+			}
+			container.appendChild(allergy_container);
 		})
 		.catch(error => {
 			console.log(error);
-		})
+		});
 
 });
 
@@ -59,7 +71,7 @@ appointmentScheduler.addEventListener('click' , ()=> {
 });
 
 healthInfo.addEventListener('click' , () => {
-	healthInfoData();
+	healthInfo();
 });
 
 checkSymptoms.addEventListener('click' , () => {
