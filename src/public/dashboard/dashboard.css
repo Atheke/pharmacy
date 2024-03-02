@@ -17,12 +17,15 @@ background:#dfe9f5;
     display:flex;
 
 }
+<<<<<<< HEAD
 
 .container2{
 
  flex:1;
 }
 
+=======
+>>>>>>> main
 .input{
     position: relative;
     top:0;
