@@ -1,11 +1,11 @@
-const mongoose= require('mongoose');
-const MONGO_URL='remove because of securit pupose';
+const mongoose= require('mongoose');//mongodb 
+const MONGO_URL='mongodb+srv://med_data:y4vUvldi0irw2TZs@cluster0.46ygfrx.mongodb.net/cluster0?retryWrites=true&w=majority';
 
 // adding event listeners
 mongoose.connection.once('open',()=>{
     console.log('mongodb connection ready');
 });
-mongoose.connection.on('error',(err)=>{
+mongoose.connection.on('error',(err)=>{ 
     console.error(err);
 });
 const options = {

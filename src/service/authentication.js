@@ -5,8 +5,10 @@ async function checkUser(req){
     const user = {
         email:req.body.email,
         password:req.body.password,
+        // loginStatus:req.loginStatus,
     }
     console.log(user);
+
 
     const t=await userDb.findOne({
             email:user.email,
@@ -14,7 +16,7 @@ async function checkUser(req){
     console.log(t);
     if(t!=null) {
         if(t.password===user.password)
-        return true;
+        return user.email;
     }
     else {
          return false;

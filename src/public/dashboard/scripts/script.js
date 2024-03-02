@@ -41,7 +41,17 @@ currentMedication.addEventListener('click' , () => {
 });
 
 patientAllergies.addEventListener('click' , () => {
-		allergiesData();	
+	const endpoint = 'http://localhost:3000/dashboard/allergies';
+
+
+	axios.get(endpoint)
+		.then(response => {
+			console.log(response);
+		})
+		.catch(error => {
+			console.log(error);
+		})
+
 });
 
 appointmentScheduler.addEventListener('click' , ()=> {

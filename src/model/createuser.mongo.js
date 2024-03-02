@@ -19,7 +19,19 @@ const createUser = new mongoose.Schema({
     Gender:{
         type:String,
         required: true,
+    },
+    dashboard:{
+             allergers:[String],
+             appointment:[String],
+             currentMedication:[String],
+             healthInfo:[String],
+             patientHistory:[String],
+             symptoms:[String],
+    },
+    loginStatus:{
+        type:Boolean
     }
+
 });
 
 module.exports = mongoose.model('UserData',createUser);
