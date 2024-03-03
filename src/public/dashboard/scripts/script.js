@@ -43,12 +43,12 @@ currentMedication.addEventListener('click' , () => {
 patientAllergies.addEventListener('click' , () => {
 	const endpoint = 'http://localhost:3000/dashboard/allergies';
 
-
 	axios.get(endpoint)
 		.then(response => {
-			console.log("request sent");
 			console.log(response);
 			const container = document.querySelector('.container2');
+			// clears out of the section so that it does not repeat on every click
+			container.innerHTML = " ";
 			const allergy_container = document.createElement('div');
 			allergy_container.classList.add('allergy-container');
 			for(let i = 0 ; i < response.data.length ; i++)
@@ -59,7 +59,7 @@ patientAllergies.addEventListener('click' , () => {
 				allergy_container.appendChild(div);
 			}
 			container.appendChild(allergy_container);
-		})
+				})
 		.catch(error => {
 			console.log(error);
 		});
