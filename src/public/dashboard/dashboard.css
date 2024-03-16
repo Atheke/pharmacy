@@ -108,3 +108,8 @@ allergy-items{
 }
 
 /* end of allergy section */
+
+/* symptom checker*/
+.questions{
+    display: none;
+}

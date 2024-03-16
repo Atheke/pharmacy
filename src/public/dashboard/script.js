@@ -2,8 +2,8 @@
 const patientHistory = document.getElementById('patientHistory');
 const currentMedication = document.getElementById('currentMedication');
 const patientAllergies = document.getElementById('patientAllergies');
-const appointmentScheduler = document.getElementById('appointmentScheduler');
-const healthInfo = document.getElementById('healthInfo');
+const appointmentScheduler = document.getElementById('appointments');
+const health = document.getElementById('health');
 const checkSymptoms = document.getElementById('checkSymptoms');
 const emergencyServices = document.getElementById('emergencyServices');
 const logout = document.getElementById('logout');
@@ -22,6 +22,8 @@ dashboardItems.forEach(item => {
         });
     });
 });
+
+
 axios.get("/dashboard/username")
 .then(response => {
 			console.log(response);
@@ -29,20 +31,60 @@ axios.get("/dashboard/username")
 	})
 	.catch(error => {
 		console.log(error);
-	})
+	});
 
+
+	health.addEventListener('click' , function() {
+		console.log("working");
+		const endpoint = 'http://localhost:3000/dashboard/healthInfo';
+		
+		axios.get(endpoint)
+			.then(response => {
+	
+				console.log(response);
+	
+			})
+			.catch(error => {
+				console.log(error);
+			});
+	
+	});
+	
 
 patientHistory.addEventListener('click' , () => {
-	historyData();		
+	
+	const endpoint = 'http://localhost:3000/dashboard/patientHistory';
+	
+	axios.get(endpoint)
+		.then(response => {
+
+			console.log(response);
+
+		})
+		.catch(error => {
+			console.log(error);
+		});
+
+
 });
 
 currentMedication.addEventListener('click' , () => {
-	medicationData();
+	const endpoint = 'http://localhost:3000/dashboard/currentMedication';
+	
+	axios.get(endpoint)
+		.then(response => {
+
+			console.log(response);
+
+		})
+		.catch(error => {
+			console.log(error);
+		});
+
 });
 
 patientAllergies.addEventListener('click' , () => {
 	const endpoint = 'http://localhost:3000/dashboard/allergies';
-
 	axios.get(endpoint)
 		.then(response => {
 			console.log(response);
@@ -66,17 +108,43 @@ patientAllergies.addEventListener('click' , () => {
 
 });
 
+
 appointmentScheduler.addEventListener('click' , ()=> {
-	appointmentData();
+	//stuff
 });
 
-healthInfo.addEventListener('click' , () => {
-	healthInfo();
-});
+
 
 checkSymptoms.addEventListener('click' , () => {
-	symptomsData();
+
+	const endpoint = 'http://localhost:3000/dashboard/symptoms';
+	const questions = document.querySelector('.questions');
+	questions.style.display = 'block';
+	const submit = document.querySelector('#submit');
+	
+	submit.addEventListener('click' , () => {
+		let selectedId = null;
+		
+		const radioBtns = document.querySelectorAll('input[type="radio"][name="symptoms"]');	
+    radioBtns.forEach(radio => {
+        if (radio.checked) {
+            selectedId = radio.id;
+        }
+    });
+		console.log(selectedId);
+   axios.post(endpoint , selectedId)
+		.then(response => {
+				//response it
+		})
+		.catch( error => {
+				//error
+		});
+
+	});
+
+
 });
+
 
 emergencyServices.addEventListener('click' , () => {
 	emergencyData();
