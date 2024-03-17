@@ -18,7 +18,7 @@ const app = express();
 app.use(cookie_session({
   name: 'session',
   keys: ['fuckyou'],
-  maxAge: 60*60*1000
+  maxAge: 60*1000
 }));
 
 

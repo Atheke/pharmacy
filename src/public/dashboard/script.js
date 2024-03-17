@@ -117,38 +117,100 @@ appointmentScheduler.addEventListener('click' , ()=> {
 
 checkSymptoms.addEventListener('click' , () => {
 
-	const endpoint = 'http://localhost:3000/dashboard/symptoms';
+	const result = {
+        symptoms: []
+    };
 	const questions = document.querySelector('.questions');
 	questions.style.display = 'block';
 	const submit = document.querySelector('#submit');
 	
-	submit.addEventListener('click' , () => {
-		let selectedId = null;
-		
-		const radioBtns = document.querySelectorAll('input[type="radio"][name="symptoms"]');
-		const result = {
-			systom:[]
-			
-		}	
+	submit.addEventListener('click' , () => selectionProcess(result));
+
+	//selection process exits when the option selected is none
+	axios.post('http://localhost:3000/dashboard/symptoms' , result)
+		.then(response => 
+			{})
+		.catch(error => {
+			console.log(error);
+		});
+});
+
+
+function selectionProcess(result)
+{
+	
+	const questions = document.querySelector('.questions');
+	let selectedId = null;
+	const endpoint = 'http://localhost:3000/dashboard/symptoms';
+    const radioBtns = document.querySelectorAll('input[type="radio"][name="symptoms"]');
+   
+
+    // Get the selected radio button
     radioBtns.forEach(radio => {
         if (radio.checked) {
             selectedId = radio.id;
-			result.systom.push(selectedId);
+            result.symptoms.push(selectedId);
         }
     });
-		console.log(selectedId);
-   axios.post(endpoint , result)
-		.then(response => {
-				//response it
-		})
-		.catch( error => {
-				//error
-		});
+	console.log(result.symptoms);
 
-	});
+    // If 'none' is selected, stop the recursion
+    if (selectedId === 'none') {
+        return;
+    }
+
+   
+
+    // Send the selected result to the server
+    axios.post(endpoint, result)
+        .then(response => {
+            // Clear previous radio buttons
+            questions.innerHTML = '';
+
+            // Display response as radio buttons
+            for (let i = 0; i < response.data.length; i++) {
+                const radioButton = document.createElement('input');
+                radioButton.type = 'radio';
+                radioButton.id = response.data[i]; // Set id based on symptom
+                radioButton.name = 'symptoms';
+
+                const label = document.createElement('label');
+                label.htmlFor = radioButton.id;
+                label.textContent = response.data[i];
+
+                questions.appendChild(radioButton);
+                questions.appendChild(label);
+                questions.appendChild(document.createElement('br'));
+            }
+
+			//create none option
+			const radioButton = document.createElement('input');
+                radioButton.type = 'radio';
+                radioButton.id = 'none'; // Set id based on symptom
+                radioButton.name = 'symptom';
+
+                const label = document.createElement('label');
+                label.htmlFor = 'none';
+                label.textContent = 'none';
+
+                questions.appendChild(radioButton);
+                questions.appendChild(label);
+
+			//create submit button
+			const submit = document.createElement('button');
+			submit.innerText = 'Submit';
+			submit.id = 'submit';
+
+            // Continue the process recursively
+			submit.addEventListener('click' , () => selectionProcess(result));
+        })
+        .catch(error => {
+            // Handle error
+			console.log(error);
+        });
+}
 
 
-});
 
 
 emergencyServices.addEventListener('click' , () => {
