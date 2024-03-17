@@ -142,13 +142,13 @@ function selectionProcess(result)
 	const questions = document.querySelector('.questions');
 	let selectedId = null;
 	const endpoint = 'http://localhost:3000/dashboard/symptoms';
-    const radioBtns = document.querySelectorAll('input[type="radio"][name="symptoms"]');
+    const checkOptions = document.querySelectorAll('input[type="checkbox"][name="symptoms"]');
    
 
     // Get the selected radio button
-    radioBtns.forEach(radio => {
-        if (radio.checked) {
-            selectedId = radio.id;
+    checkOptions.forEach(options => {
+        if (options.checked) {
+            selectedId = options.id;
             result.symptoms.push(selectedId);
         }
     });
@@ -170,7 +170,7 @@ function selectionProcess(result)
             // Display response as radio buttons
             for (let i = 0; i < response.data.length; i++) {
                 const radioButton = document.createElement('input');
-                radioButton.type = 'radio';
+                radioButton.type = 'checkbox';
                 radioButton.id = response.data[i]; // Set id based on symptom
                 radioButton.name = 'symptoms';
 
@@ -185,7 +185,7 @@ function selectionProcess(result)
 
 			//create none option
 			const radioButton = document.createElement('input');
-                radioButton.type = 'radio';
+                radioButton.type = 'checkbox';
                 radioButton.id = 'none'; // Set id based on symptom
                 radioButton.name = 'symptom';
 
@@ -200,7 +200,7 @@ function selectionProcess(result)
 			const submit = document.createElement('button');
 			submit.innerText = 'Submit';
 			submit.id = 'submit';
-
+			questions.appendChild(submit);
             // Continue the process recursively
 			submit.addEventListener('click' , () => selectionProcess(result));
         })
