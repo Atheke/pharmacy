@@ -1,1 +1,0 @@
-// the login checker every time thier is the like change this is first check then contined
