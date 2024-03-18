@@ -19,99 +19,51 @@
 
     <header>
         <div class="navdiv">
-            <nav class="navbar">
-                <div class="logo">
-                    <h1>Dashboard</h1>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <div class="container">
-
-        <div class="container1">
-            <nav class="input">
-                <i class="fa-solid fa-user"></i>
-                <h2 id="userName">User Name</h2>
-                <ul>
-                    <div class="dashboard-item" id="dashboard">
-                        <li><a href="#">Dashboard</a></li>
-                    </div>
-                    <div class="dashboard-item" id="patientHistory">
-                        <li><a href="#">Patient History</a></li>
-                    </div>
-                    <div class="dashboard-item" id="currentMedication">
-                        <li><a href="#">Current Medication</a></li>
-                    </div>
-                    <div class="dashboard-item" id="patientAllergies">
-                        <li><a href="#">Any Allergies</a></li>
-                    </div>
-                    <div class="dashboard-item" id="appointments">
-                        <li><a href="#">Schedule your Appointments</a></li>
-                    </div>
-                    <div class="dashboard-item" id="health">
-                        <li><a href="#">Health Information and Resources</a></li>
-                    </div>
-                    <div class="dashboard-item" id="checkSymptoms">
-                        <li><a href="#">Check Symptoms</a></li>
-                    </div>
-                    <div class="dashboard-item" id="emergencyServices">
-                        <li><a href="#">Emergency Services</a></li>
-                    </div>
-                    <div class="dashboard-item" id="setting">
-                        <li><a href="#">Settings</a></li>
-                    </div>
-                    <div class="dashboard-item" id="logout">
-                        <li><a href="#">Logout</a></li>
-                    </div>
-                </ul>
-            </nav>
-            <div id="test">
-
-            </div>
-        </div>
-
-
-        <div class="container2">
-
-            <div class = "questions" >
-                <h3>What is the severity of your problem</h3>
-                <input type="radio" id="mild" name="severity" value="3">
-                <label for="mild">Mild</label><br>
-                <input type="radio" id="Moderate" name="severity" value="6">
-                <label for="Moderate">Moderate</label><br>
-                <input type="radio" id="Severe" name="severity" value="10">
-                <label for="Severe">Severe</label>
-                <div> <button id="submit">Submit</button> </div>
-
-            </div>
-
-            <div class = "durationQuestions">
-                <h3>What is the duration of your symptoms</h3>
-                <input type="radio" id="brief" name="length" value="3">
-                <label for="brief">1-4 days</label><br>
-                <input type="radio" id="medium" name="length" value="6">
-                <label for="medium">4-7 days</label><br>
-                <input type="radio" id="long" name="length" value="10">
-                <label for="long"> more than 7 days</label>
-                <div> <button id="submission">Submit</button> </div>
-            </div>
-
-            <div class = "diseaseQuestions">
-                <h3>Which symptom is applicable to you</h3>
-                <input type="checkbox" id="cough" name="symptoms" value="Cough">
-                <label for="cough">Cough</label><br>
-                <input type="checkbox" id="headache" name="symptoms" value="headache">
-                <label for="headache">Headache</label><br>
-                <input type="checkbox" id="fever" name="symptoms" value="fever">
-                <label for="fever">Fever</label>
-                <div> <button id="send">Submit</button> </div>
-
-            </div>
-
-        </div>
-    </div>
-
-</body>
-
-</html>
+         <nav class="navbar">
+                 <div class="logo"><h1>Dashboard</h1></div>            
+         </nav>
+         </div> 
+     </header>
+       
+         <div class="container">
+             <div class="container1">
+         <nav class="input">
+             <i class="fa-solid fa-user"></i>
+             <h2 id="userName">User Name</h2>
+             <ul>
+                 <div class="dashboard-item" id="dashboard"><li><a href="#">Dashboard</a></li></div>
+                 <div class="dashboard-item" id="patientHistory"><li><a href="#">Patient History</a></li></div>
+                 <div class="dashboard-item" id="currentMedication"><li><a href="#">Current Medication</a></li></div>
+                 <div class="dashboard-item" id="patientAllergies"><li><a href="#">Any Allergies</a></li></div>
+                 <div class="dashboard-item" id="appointments"><li><a href="#">Schedule your Appointments</a></li></div>
+                 <div class="dashboard-item" id="health"><li><a href="#">Health Information and Resources</a></li></div>
+                 <div class="dashboard-item" id="checkSymptoms"><li><a href="#">Check Symptoms</a></li></div>
+                 <div class="dashboard-item" id="emergencyServices"><li><a href="#">Emergency Services</a></li></div>               
+                 <div class="dashboard-item" id="setting"><li><a href="#">Settings</a></li></div>
+                 <div class="dashboard-item" id="logout"><li><a href="#" >Logout</a></li></div>
+             </ul>
+         </nav>
+         <div id="test">
+            
+         </div>
+         </div>
+     
+         
+         <div class="container2">
+           <div class="questions">
+            <h3>Select the symptoms applicable to you</h3>
+            <input type="checkbox" id="Cough" name="symptoms" value="cough">
+            <label for="cough">Cough</label><br>
+            <input type="checkbox" id="Headache" name="symptoms" value="headache">
+            <label for="headache">Headache</label><br>
+            <input type="checkbox" id="Fever" name="symptoms" value="fever">
+            <label for="fever">Fever</label>
+            <div>  <button id = "submit">Submit</button> </div>
+           
+           </div>
+         </div>
+     </div >
+ 
+ </body>
+ </html>
+ 

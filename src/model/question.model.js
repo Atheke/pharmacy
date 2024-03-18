@@ -7,6 +7,7 @@ let nextfilter =new Set();
 let filter = {};
 
 function findDeease(patientSym){
+    filter={};
     for(Des in data){
         let count =0;
           for(sym in patientSym){
@@ -25,15 +26,15 @@ function findDeease(patientSym){
                 }
            }
     }
-
-        
-      console.log(filter);  
-      if(patientSym[patientSym.length-1]=='none'){
+  
+      if(patientSym[patientSym.length-1]=='none'||Object.entries(filter).length === 1){
+         console.log("hello",filter);
          return filter; 
       }
-      if(Object.entries(filter).length === 1){
-            return  Object.values(filter);
-      }   
+    //   if(Object.entries(filter).length === 1) 
+    //         return  Object.values(filter);
+    //   }   
+      console.log(filter);
       return (nextLayer(filter,patientSym));
     }
     
@@ -48,7 +49,9 @@ function nextLayer(filter,t){
             }
         });
     }
-    return nextfilter;
+    let tmp=Array.from(nextfilter)
+    console.log(typeof tmp,tmp);
+    return tmp;
 }
 
 
