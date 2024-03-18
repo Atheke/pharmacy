@@ -4,57 +4,57 @@ const currentMedication = document.getElementById('currentMedication');
 const patientAllergies = document.getElementById('patientAllergies');
 const appointmentScheduler = document.getElementById('appointments');
 const health = document.getElementById('health');
-const checkSymptoms = document.getElementById('checkSymptoms');
+// const checkSymptoms = document.getElementById('checkSymptoms');
 const emergencyServices = document.getElementById('emergencyServices');
 const logout = document.getElementById('logout');
 const dashboardItems = document.querySelectorAll('.dashboard-item');
 
 dashboardItems.forEach(item => {
-    item.addEventListener('click', function() {
-        // Toggle the 'selected' class on click
-        this.classList.toggle('selected');
+	item.addEventListener('click', function () {
+		// Toggle the 'selected' class on click
+		this.classList.toggle('selected');
 
-        // Deselect other items
-        dashboardItems.forEach(otherItem => {
-            if (otherItem !== this) {
-                otherItem.classList.remove('selected');
-            }
-        });
-    });
+		// Deselect other items
+		dashboardItems.forEach(otherItem => {
+			if (otherItem !== this) {
+				otherItem.classList.remove('selected');
+			}
+		});
+	});
 });
 
 
 axios.get("/dashboard/username")
-.then(response => {
-			console.log(response);
-		  document.getElementById('userName').innerText = response.data;
+	.then(response => {
+		console.log(response);
+		document.getElementById('userName').innerText = response.data;
 	})
 	.catch(error => {
 		console.log(error);
 	});
 
 
-	health.addEventListener('click' , function() {
-		console.log("working");
-		const endpoint = 'http://localhost:3000/dashboard/healthInfo';
-		
-		axios.get(endpoint)
-			.then(response => {
-	
-				console.log(response);
-	
-			})
-			.catch(error => {
-				console.log(error);
-			});
-	
-	});
-	
+health.addEventListener('click', function () {
+	console.log("working");
+	const endpoint = 'http://localhost:3000/dashboard/healthInfo';
 
-patientHistory.addEventListener('click' , () => {
-	
+	axios.get(endpoint)
+		.then(response => {
+
+			console.log(response);
+
+		})
+		.catch(error => {
+			console.log(error);
+		});
+
+});
+
+
+patientHistory.addEventListener('click', () => {
+
 	const endpoint = 'http://localhost:3000/dashboard/patientHistory';
-	
+
 	axios.get(endpoint)
 		.then(response => {
 
@@ -68,9 +68,9 @@ patientHistory.addEventListener('click' , () => {
 
 });
 
-currentMedication.addEventListener('click' , () => {
+currentMedication.addEventListener('click', () => {
 	const endpoint = 'http://localhost:3000/dashboard/currentMedication';
-	
+
 	axios.get(endpoint)
 		.then(response => {
 
@@ -83,33 +83,10 @@ currentMedication.addEventListener('click' , () => {
 
 });
 
-patientAllergies.addEventListener('click' , () => {
-	const endpoint = 'http://localhost:3000/dashboard/allergies';
-	axios.get(endpoint)
-		.then(response => {
-			console.log(response);
-			const container = document.querySelector('.container2');
-			// clears out of the section so that it does not repeat on every click
-			container.innerHTML = " ";
-			const allergy_container = document.createElement('div');
-			allergy_container.classList.add('allergy-container');
-			for(let i = 0 ; i < response.data.length ; i++)
-			{
-				const div = document.createElement('div');
-				div.classList.add('allergy-items');
-				div.innerText = response.data[i];
-				allergy_container.appendChild(div);
-			}
-			container.appendChild(allergy_container);
-				})
-		.catch(error => {
-			console.log(error);
-		});
-
-});
 
 
-appointmentScheduler.addEventListener('click' , ()=> {
+
+appointmentScheduler.addEventListener('click', () => {
 	//stuff
 });
 
@@ -215,18 +192,14 @@ function selectionProcess(result)
 
 
 
-emergencyServices.addEventListener('click' , () => {
-	emergencyData();
-});
-
 logout.addEventListener('click', () => {
 	axios.get('http://localhost:3000/logout')
-	.then(response => {
-	   window.location.href = '/';
-	}).error(error => {
-	   console.log(error);
+		.then(response => {
+			window.location.href = '/';
+		}).error(error => {
+			console.log(error);
 
-	});
+		});
 });
 
 

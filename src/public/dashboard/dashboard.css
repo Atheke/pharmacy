@@ -111,5 +111,14 @@ allergy-items{
 
 /* symptom checker*/
 .questions{
-    display: none;
+   
+    visibility: hidden;
+}
+
+.durationQuestions{
+    visibility: hidden;
+}
+
+.diseaseQuestions{
+    visibility: hidden;
 }
