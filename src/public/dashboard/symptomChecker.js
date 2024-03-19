@@ -29,42 +29,55 @@ checkSymptoms.addEventListener('click', () => {
 			}
 		})
 
-
-		duration.style.visibility = 'visible';
+		questions.innerHTML = `
+		<h3>What is the duration of your symptoms</h3>
+		<input type="radio" id="brief" name="length" value="3">
+		<label for="brief">1-4 days</label><br>
+		<input type="radio" id="medium" name="length" value="6">
+		<label for="medium">4-7 days</label><br>
+		<input type="radio" id="long" name="length" value="10">
+		<label for="long"> more than 7 days</label>
+		<div> <button id="submission">Submit</button> </div>
+		`;
+		// duration.style.visibility = 'visible';
 		console.log(result.symptoms);
-	});
-	const submission = document.querySelector('#submission');
-	const choices = document.querySelectorAll('input[type="radio"][name="length"]');
 
-	submission.addEventListener('click', () => {
+		const submission = document.querySelector('#submission');
+		const choices = document.querySelectorAll('input[type="radio"][name="length"]');
 
-		choices.forEach(option => {
-			if (option.checked) {
-				selected = option.value;
-				result.symptoms.push(selected);
-			}
+		submission.addEventListener('click', () => {
+
+			choices.forEach(option => {
+				if (option.checked) {
+					selected = option.value;
+					result.symptoms.push(selected);
+				}
+			})
+
+			//disease.style.visibility = 'visible';
+			questions.innerHTML = `
+		<h3>Which symptom is applicable to you</h3>
+		<input type="checkbox" id="cough" name="symptoms" value="Cough">
+		<label for="cough">Cough</label><br>
+		<input type="checkbox" id="headache" name="symptoms" value="headache">
+		<label for="headache">Headache</label><br>
+		<input type="checkbox" id="fever" name="symptoms" value="fever">
+		<label for="fever">Fever</label>
+		<div> <button id="send">Submit</button> </div>`;
+			console.log(result.symptoms);
+			const send = document.querySelector('#send');
+
+
+			send.addEventListener('click', () => {
+				// console.log("events");
+				selectionProcess(result);
+				console.log("we are out");
+			})
 		})
 
-		disease.style.visibility = 'visible';
-		console.log(result.symptoms);
-	})
-	const send = document.querySelector('#send');
+	});
+	
 
-
-	send.addEventListener('click', () => {
-		duration.innerHTML = '';
-
-		// console.log("events");
-		selectionProcess(result);
-	})
-
-
-	//selection process exits when the option selected is none
-	axios.post('http://localhost:3000/dashboard/symptoms', result)
-		.then(response => { })
-		.catch(error => {
-			console.log(error);
-		});
 });
 
 
@@ -80,35 +93,41 @@ function selectionProcess(result) {
 	checkOptions.forEach(options => {
 		if (options.checked) {
 
-			if (options.value == "none") {
-				checkOptions.forEach(uncheck => {
-					if (uncheck !== options)
-						uncheck.checked = false;
-				});
-				result.symptoms.push(options.value);
-			}
-			else {
 
-				selectedId = options.id;
+			selectedId = options.id;
 
-				result.symptoms.push(selectedId);
-			}
-
+			result.symptoms.push(selectedId);
 		}
 	});
 	console.log(result.symptoms);
-	disease.innerHTML = '';
 	// If 'none' is selected, stop the recursion
 	if (selectedId === 'none') {
+
+		console.log("does selected id become none");
 		questions.innerHTML = '';
 
 		axios.post(endpoint, result)
 			.then(response => {
 
-				console.log(response);
-				const resultdiv = document.createElement('div');
-				resultdiv.innerText = `you have disease ${response.data}`;
-				questions.appendChild(resultdiv);
+				console.log(response.data);
+				const data = response.data;
+				const diseases = Object.keys(data);
+				if (diseases == '') {
+					const resultdiv = document.createElement('div');
+					resultdiv.textContent = "Sorry symptoms does not match to any disease , you are probably gonna die";
+					questions.appendChild(resultdiv);
+				}
+				else {
+					diseases.forEach(disease => {
+						console.log(disease);
+						const resultdiv = document.createElement('div');
+						resultdiv.textContent = `you have disease ${disease}`;
+						questions.appendChild(resultdiv);
+
+					})
+
+				}
+
 				return;
 			})
 			.catch(error => {
@@ -118,7 +137,13 @@ function selectionProcess(result) {
 	}
 
 
+	else {
+		displaySymptoms(result , endpoint);
+	}
+}
 
+function displaySymptoms(result , endpoint)
+{
 	// Send the selected result to the server
 	axios.post(endpoint, result)
 		.then(response => {
@@ -191,3 +216,4 @@ function selectionProcess(result) {
 			console.log(error);
 		});
 }
+
