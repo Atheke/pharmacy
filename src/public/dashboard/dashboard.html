@@ -10,6 +10,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="dashboard.css">
     <script src = "symptomChecker.js" defer></script>
+    <script src="allergy.js" defer></script>
+    <script src="pastHistory.js" defer></script>
+    <script src="medication.js" defer></script>
     <script src="script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
@@ -109,6 +112,95 @@
                 <div> <button id="send">Submit</button> </div>
 
             </div>
+            <div class="allergydiv">
+                <button class="add-allergy-button" id="add-allergy-button">
+                  Add Allergy
+                </button>
+                <div class="Library-container"></div>
+                <section class="something">
+                  <form action="#" class="form hidden">
+                    <div class="form-contents">
+                      <input
+                        type="text"
+                        placeholder="add allergies"
+                        id="allergy"
+                        onclick="this.value = '' "
+                      />
+                      <input
+                        type="text"
+                        placeholder="allergyDecription"
+                        id="description"
+                        onclick="this.value = '' "
+                      />
+                      <div class="buttons">
+                        <button class="submit">submit</button>
+                        <button class="close">close</button>
+                      </div>
+                    </div>
+                  </form>
+                </section>
+              </div>
+              <div class="historydiv">
+                <div id="floatingwindow">
+                  <div class="heading">
+                    <h1 class="disehead">No Data</h1>
+                  </div>
+                  <button id="add-history-button">Add History</button>
+                </div>
+                <div class="Library-container2"></div>
+                  <form action="#" class = "historyForm">
+                    <div class="form-contents2">
+                      <input
+                        type="text"
+                        placeholder="any past severe disease?"
+                        id="disease"
+                        onclick="this.value = '' "
+                      />
+                      <input
+                        type="text"
+                        placeholder="its duration(Months)"
+                        id="time"
+                        onclick="this.value = '' "
+                      />
+                      <div class="buttons">
+                        <button class="s2">submit</button>
+                        <button class="c2">close</button>
+                      </div>
+                    </div>
+                  </form>
+              </div>
+              <div class="medicationdiv">
+                <h1 class="medihead">No Data</h1>
+                <button class="add-medication-button" id="add-medication-button">
+                  Add Medication
+                </button>
+                <div class="Library-container3"></div>
+                <section class="something">
+                  <form action="#">
+                    <div class="form-contents3">
+                      <input
+                        type="text"
+                        placeholder="Name of the medicine"
+                        id="name"
+                        onclick="this.value = '' "
+                      />
+                      <input
+                        type="text"
+                        placeholder="Reason??"
+                        id="use"
+                        onclick="this.value = '' "
+                      />
+                      <div class="buttons">
+                        <button class="s3">submit</button>
+                        <button class="c3">close</button>
+                      </div>
+                    </div>
+                  </form>
+                </section>
+              </div>
+
+
+
 
         </div>
     </div>

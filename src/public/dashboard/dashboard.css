@@ -107,6 +107,45 @@ allergy-items{
     font-weight: 300;
 }
 
+.allergydiv {
+    display: none;
+  }
+  
+  .form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(222, 207, 207, 0.5);
+    transform: scale(1.1);
+  }
+  .form-contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+    border: 2px solid rgb(19, 16, 16);
+  }
+  
+  .hidden{
+      display: none;
+  }
+  .buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .Library-container {
+    margin-top: 30px;
+    color: rgb(74, 150, 117);
+    display: flex;
+    padding-left: 2rem;
+    gap: 3rem;
+  }
+
 /* end of allergy section */
 
 /* symptom checker*/
@@ -122,3 +161,96 @@ allergy-items{
 .diseaseQuestions{
     visibility: hidden;
 }
+
+
+/* patient history section */
+.historydiv {
+    display: none;
+  }
+  
+  .historyForm{
+      display: none;
+  }
+  
+  .form-contents2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+    border: 2px solid rgb(19, 16, 16);
+  }
+  
+  .form2 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(222, 207, 207, 0.5);
+    transform: scale(1.1);
+  }
+  .history-box {
+    background-color: #1ebd4b;
+    padding: 10px;
+    border: 1px solid #110f0f;
+    border-radius: 5px;
+    max-width: 300px;
+    text-align: left;
+  }
+  
+  .history-box p {
+    margin: 0;
+  }
+  
+  .history-box button.cancel {
+    background-color: #dc3545;
+    color: #080404;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .history-box button.cancel:hover {
+    background-color: #c82333;
+  }
+  /* current medication div*/
+  .medicationdiv {
+    display: none;
+  }
+  
+  .form-contents3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+    border: 2px solid rgb(19, 16, 16);
+  }
+  
+  .form3 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(222, 207, 207, 0.5);
+    transform: scale(1.1);
+  }
+  
+  .Library-container3 {
+    margin-top: 30px;
+    color: rgb(74, 150, 117);
+    display: flex;
+    padding-left: 2rem;
+    gap: 3rem;
+  }
+  
+  .medication-box{
+      border: 1px solid #3bb398;
+  }
+  

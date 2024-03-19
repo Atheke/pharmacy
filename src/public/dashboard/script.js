@@ -1,7 +1,7 @@
 // handles all events on the dashboard
-const patientHistory = document.getElementById('patientHistory');
-const currentMedication = document.getElementById('currentMedication');
-const patientAllergies = document.getElementById('patientAllergies');
+//const patientHistory = document.getElementById('patientHistory');
+//const currentMedication = document.getElementById('currentMedication');
+//const patientAllergies = document.getElementById('patientAllergies');
 const appointmentScheduler = document.getElementById('appointments');
 const health = document.getElementById('health');
 // const checkSymptoms = document.getElementById('checkSymptoms');
@@ -51,37 +51,37 @@ health.addEventListener('click', function () {
 });
 
 
-patientHistory.addEventListener('click', () => {
+// patientHistory.addEventListener('click', () => {
 
-	const endpoint = 'http://localhost:3000/dashboard/patientHistory';
+// 	const endpoint = 'http://localhost:3000/dashboard/patientHistory';
 
-	axios.get(endpoint)
-		.then(response => {
+// 	axios.get(endpoint)
+// 		.then(response => {
 
-			console.log(response);
+// 			console.log(response);
 
-		})
-		.catch(error => {
-			console.log(error);
-		});
+// 		})
+// 		.catch(error => {
+// 			console.log(error);
+// 		});
 
 
-});
+// });
 
-currentMedication.addEventListener('click', () => {
-	const endpoint = 'http://localhost:3000/dashboard/currentMedication';
+// currentMedication.addEventListener('click', () => {
+// 	const endpoint = 'http://localhost:3000/dashboard/currentMedication';
 
-	axios.get(endpoint)
-		.then(response => {
+// 	axios.get(endpoint)
+// 		.then(response => {
 
-			console.log(response);
+// 			console.log(response);
 
-		})
-		.catch(error => {
-			console.log(error);
-		});
+// 		})
+// 		.catch(error => {
+// 			console.log(error);
+// 		});
 
-});
+// });
 
 
 
