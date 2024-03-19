@@ -52,24 +52,6 @@ patientAllergies.addEventListener('click', () => {
 });
 
 
-
-//  trigger.addEventListener('click' , function()
-//  {
-//  form.classList.toggle("hidden");//creates class hidden otherwise deletes it
-//  //creating and deleting the hidden class is the main logic to hide and make the modal pop up on clicking
-//  });
-//  submit.addEventListener('click' , function(event)
-//  {
-//  event.preventDefault();//prevent the default form submission behaviour
-//  //without this the book card gets automatically deleted the first time as the default submission behaviour reloads the page
-//  book_author = document.getElementById('allergy').value;
-//  book_name = document.getElementById('description').value;
-//  const book = new Book(book_author , book_name );
-//  Library.push(book);
-// create_book(book);
-//  form.classList.toggle("hidden");
-//  });
-//to create the book visually on the webapp
 function display_allergy(allergy_name , allergy_description) {
   const library_container = document.querySelector('.Library-container');
   const library_items = document.createElement('div');

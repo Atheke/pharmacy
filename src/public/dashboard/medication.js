@@ -30,13 +30,28 @@ addMedicationButton.addEventListener('click', () => {
 
 });
 currentMedication.addEventListener('click', () => {
+
     medicationdiv.style.display = 'block';
-    console.log("whats is medication?");
     allergydiv.style.display = 'none';
     historydiv.style.display = 'none';
     questions.style.visibility = 'none';
 
-    // Event listener for the "Add Medication" button
+		axios.get('http://localhost:3000/dashboard/currentMedication')
+			.then(response => {
+					console.log(response);
+					if(response.data == "")
+					{
+						medicationdiv.style.display = 'block';
+					}
+					
+					
+					
+				})
+			.catch(error => {
+				console.log(error);
+				})
+	
+		    // Event listener for the "Add Medication" button
 
     // Event listener for the "Submit" button
     document.querySelector('.s3').addEventListener('click', function (event) {
@@ -56,6 +71,12 @@ currentMedication.addEventListener('click', () => {
         axios.post('http://localhost:3000/dashboard/currentMedication', medication)
             .then(response => {
                 console.log(response);
+								
+
+        // Append the new box to the container
+        medicationContainer.appendChild(medicationBox);
+
+
             })
             .catch(error => {
                 console.log(error);
@@ -67,7 +88,7 @@ currentMedication.addEventListener('click', () => {
         medicationBox.innerHTML = `
             <p><strong>Name:</strong> <span class = "medicineName">${name}</span></p>
             <p><strong>Use:</strong> <span class = "reason">${use}</span></p>
-            <button class="cancel">Cancel</button>
+            <button class="cancel">Delete</button>
         `;
 
         // Append the new box to the container
@@ -98,3 +119,24 @@ currentMedication.addEventListener('click', () => {
     document.querySelector('.c3').addEventListener('click', hideForm);
 
 });
+
+
+function displayData(response , length)
+{
+
+		for(let i = 0 ; i < length ; i++)
+		{
+					// Create a new box to display the data
+        const medicationBox = document.createElement('div');
+        medicationBox.classList.add('medication-box');
+        medicationBox.innerHTML = `
+            <p><strong>Name:</strong> <span class = "medicineName">${response[i]}</span></p>
+            <button class="cancel">Cancel</button>
+        `;
+
+        // Append the new box to the container
+        medicationContainer.appendChild(medicationBox);
+	
+		}
+
+}
