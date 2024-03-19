@@ -37,9 +37,9 @@ dashboardRouter.get('/allergies', getAllergies);
  dashboardRouter.get('/username', username);
  dashboardRouter.post('/currentMedication/delete', deleteitm);
  dashboardRouter.post('/currentMedication/update', updateitm);
- dashboardRouter.post('/patientHistory/update', deleteitp);
+ dashboardRouter.post('/patientHistory/delete', deleteitp);
  dashboardRouter.post('/patientHistory/update', updateitp);
- dashboardRouter.post('/allergies/update', deleteita);
+ dashboardRouter.post('/allergies/delete', deleteita);
  dashboardRouter.post('/allergies/update', updateita);
 
 

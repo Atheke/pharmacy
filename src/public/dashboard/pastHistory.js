@@ -53,9 +53,12 @@ submitButton.addEventListener('click', function(event) {
   const time = document.getElementById('time').value;
   history.diseases.push(disease);
   history.diseases.push(time);
+  const r={
+    pass:disease
+  }
   console.log(history.diseases);
   // the array sent contains the disease and duration of each entry and does not append each and every entry
-  axios.post('http://localhost:3000/dashboard/patientHistory' ,history )
+  axios.post('http://localhost:3000/dashboard/patientHistory/update' ,r )
     .then(response => {
       console.log(response);
     })
@@ -77,7 +80,10 @@ submitButton.addEventListener('click', function(event) {
     const parentdiv = cancelButton.parentNode;
     const data = parentdiv.querySelector('.disease').textContent;
     console.log(data);
-    axios.post('http://localhost:3000/dashboard/patientHistory' ,data)
+    const k={
+         pass:data
+    };
+    axios.post('http://localhost:3000/dashboard/patientHistory/delete' ,k)
       .then(response => {
         console.log(response);
       })

@@ -78,7 +78,7 @@ async function updateitp(req,res){
 }
 async function deleteitp(req,res){
     const endpoint='patientHistory';
-    await updatethedata(req,endpoint);
+    await deleteit(req,endpoint);
     return res.status(201).json('updadtordeletsucess');
 }
 module.exports ={

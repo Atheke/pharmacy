@@ -66,9 +66,14 @@ currentMedication.addEventListener('click', () => {
         const use = document.getElementById('use').value;
         medication.medicines.push(name);
         medication.medicines.push(use);
-        console.log(medication.medicines);
+        
+        const r={
+                pass:name
+        };
+        
+        console.log(r);
   // the array sent contains the disease and duration of each entry and does not append each and every entry
-        axios.post('http://localhost:3000/dashboard/currentMedication', medication)
+        axios.post('http://localhost:3000/dashboard/currentMedication/update', r)
             .then(response => {
                 console.log(response);
 								
@@ -99,8 +104,10 @@ currentMedication.addEventListener('click', () => {
 
             const parentdiv = cancelButton.parentNode;
             const data = parentdiv.querySelector('.medicineName').textContent;
-            console.log(data);
-            axios.post('http://localhost:3000/dashboard/patientHistory' ,data)
+           const t={
+                pass:data,
+           }
+            axios.post('http://localhost:3000/dashboard/currentMedication/delete' ,t)
               .then(response => {
                 console.log(response);
               })

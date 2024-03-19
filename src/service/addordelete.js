@@ -4,6 +4,8 @@ const userDataBase= require('../model/createuser.mongo');
 async function updatethedata(req,endpoint){
     let updatedata = req.body.pass;
     let user = req.session.userId;
+    console.log(req.body.pass);
+    if(updatedata){
     console.log(user);
     let pastdata = await userDataBase.findOne({
         email:user,
@@ -21,13 +23,17 @@ async function updatethedata(req,endpoint){
     array.push(updatedata);
     pastdata.dashboard[endpoint] = array;
     updateit(pastdata,user);
+}
     
 }
 
 async function deleteit(req,endpoint){
    
     let deletdata= req.body.pass;
-   
+
+    console.log(req.body.pass);
+
+   if(deletdata){
     let user = req.session.userId;
     console.log(user);
 
@@ -49,6 +55,7 @@ async function deleteit(req,endpoint){
     pastdata.dashboard[endpoint]=newarray;
     console.log(pastdata);
     updateit(pastdata,user)
+}
 }
 
 async function updateit(pastdata,user){

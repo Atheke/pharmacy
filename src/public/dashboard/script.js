@@ -51,37 +51,53 @@ health.addEventListener('click', function () {
 });
 
 
-// patientHistory.addEventListener('click', () => {
+patientHistory.addEventListener('click', () => {
 
-// 	const endpoint = 'http://localhost:3000/dashboard/patientHistory';
+	const endpoint = 'http://localhost:3000/dashboard/patientHistory';
 
-// 	axios.get(endpoint)
-// 		.then(response => {
+	axios.get(endpoint)
+		.then(response => {
 
-// 			console.log(response);
+			console.log(response);
 
-// 		})
-// 		.catch(error => {
-// 			console.log(error);
-// 		});
+		})
+		.catch(error => {
+			console.log(error);
+		});
 
 
-// });
+});
+patientAllergies.addEventListener('click', () => {
 
-// currentMedication.addEventListener('click', () => {
-// 	const endpoint = 'http://localhost:3000/dashboard/currentMedication';
+	const endpoint = 'http://localhost:3000/dashboard/allergies';
 
-// 	axios.get(endpoint)
-// 		.then(response => {
+	axios.get(endpoint)
+		.then(response => {
 
-// 			console.log(response);
+			console.log(response);
 
-// 		})
-// 		.catch(error => {
-// 			console.log(error);
-// 		});
+		})
+		.catch(error => {
+			console.log(error);
+		});
 
-// });
+
+});
+
+currentMedication.addEventListener('click', () => {
+	const endpoint = 'http://localhost:3000/dashboard/currentMedication';
+
+	axios.get(endpoint)
+		.then(response => {
+
+			console.log(response);
+
+		})
+		.catch(error => {
+			console.log(error);
+		});
+
+});
 
 
 

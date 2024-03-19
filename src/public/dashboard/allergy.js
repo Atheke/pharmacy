@@ -14,7 +14,7 @@ let i = 0;// counter for the object index
 
 patientAllergies.addEventListener('click', () => {
 
-
+  const pass=[];
   allergydiv.style.display = 'block';
   medicationdiv.style.display = 'none';
   historydiv.style.display = 'none';
@@ -35,8 +35,11 @@ patientAllergies.addEventListener('click', () => {
     allergies.allergy.push(allergy_name);
     allergies.allergy.push(allergy_description);
     console.log(allergies.allergy);
+   const t={
+      pass:allergy_name
+   }
 
-    axios.post('http://localhost:3000/dashboard/allergers' , allergies )
+    axios.post('http://localhost:3000/dashboard/allergies/update' , t )
     .then(response => {
       console.log(response);
     })
@@ -76,13 +79,19 @@ function display_allergy(allergy_name , allergy_description) {
   library_items.appendChild(description);
   library_items.appendChild(delete_btn);
   library_container.appendChild(library_items);
-  
+
 
   delete_btn.addEventListener('click', function () {
     const parentdiv = delete_btn.parentNode;
     const data = parentdiv.querySelector('.allergyName').textContent;
-    console.log(data);
-    axios.post('http://localhost:3000/dashboard/allergers' ,data)
+    const data1 = parentdiv.querySelector('.allergyDescription').textContent;
+    const pass=[];
+    const r = {
+       pass:data
+    }
+    pass.push(r);
+    console.log(pass);
+    axios.post('http://localhost:3000/dashboard/allergies/delete' ,r)
       .then(response => {
         console.log(response);
       })
