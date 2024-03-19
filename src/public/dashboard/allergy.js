@@ -19,7 +19,7 @@ patientAllergies.addEventListener('click', () => {
   medicationdiv.style.display = 'none';
   historydiv.style.display = 'none';
   questions.style.visibility = 'none';
-  
+
   trigger.addEventListener('click', function () {
     form.classList.toggle("hidden");//creates class hidden otherwise deletes it
   });
@@ -34,6 +34,15 @@ patientAllergies.addEventListener('click', () => {
     allergy_description = document.getElementById('description').value;
     allergies.allergy.push(allergy_name);
     allergies.allergy.push(allergy_description);
+    console.log(allergies.allergy);
+
+    axios.post('http://localhost:3000/dashboard/allergers' , allergies )
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error);
+    });
 
     display_allergy(allergy_name , allergy_description);
     form.classList.toggle("hidden");
