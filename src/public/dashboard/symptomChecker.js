@@ -6,7 +6,10 @@ const disease = document.querySelector('.diseaseQuestions');
 
 checkSymptoms.addEventListener('click', () => {
 
-    questions.style.visibility = 'visible';
+	allergydiv.style.display = 'none';
+	medicationdiv.style.display = 'none';
+	historydiv.style.display = 'none';
+	questions.style.visibility = 'visible';
 	console.log("works");
 	const result = {
 		symptoms: []
@@ -16,49 +19,46 @@ checkSymptoms.addEventListener('click', () => {
 	const submit = document.querySelector('#submit');
 	const options = document.querySelectorAll('input[type="radio"][name="severity"]');
 
-	submit.addEventListener('click' , () => {
-		
-		options.forEach( option => {
-            
-            if(option.checked)
-            {
-                selected = option.value;
-                result.symptoms.push(selected);	
-            }
+	submit.addEventListener('click', () => {
+
+		options.forEach(option => {
+
+			if (option.checked) {
+				selected = option.value;
+				result.symptoms.push(selected);
+			}
 		})
-        
-        
-        duration.style.visibility = 'visible';
-        console.log(result.symptoms);
+
+
+		duration.style.visibility = 'visible';
+		console.log(result.symptoms);
 	});
-    const submission = document.querySelector('#submission');
-    const choices = document.querySelectorAll('input[type="radio"][name="length"]');
+	const submission = document.querySelector('#submission');
+	const choices = document.querySelectorAll('input[type="radio"][name="length"]');
 
-    submission.addEventListener('click' , () => {
+	submission.addEventListener('click', () => {
 
-		choices.forEach( option => {
-            if(option.checked)
-            {
-                selected = option.value;
-                result.symptoms.push(selected);	
-            }
+		choices.forEach(option => {
+			if (option.checked) {
+				selected = option.value;
+				result.symptoms.push(selected);
+			}
 		})
-         
-        disease.style.visibility = 'visible';
-        console.log(result.symptoms);
-    })
-    const send = document.querySelector('#send');
-    
 
-    send.addEventListener('click' , () => 
-    {
-        duration.innerHTML = '';
-       
-        // console.log("events");
-        selectionProcess(result);
-    })
-    
-	
+		disease.style.visibility = 'visible';
+		console.log(result.symptoms);
+	})
+	const send = document.querySelector('#send');
+
+
+	send.addEventListener('click', () => {
+		duration.innerHTML = '';
+
+		// console.log("events");
+		selectionProcess(result);
+	})
+
+
 	//selection process exits when the option selected is none
 	axios.post('http://localhost:3000/dashboard/symptoms', result)
 		.then(response => { })
@@ -70,11 +70,11 @@ checkSymptoms.addEventListener('click', () => {
 
 function selectionProcess(result) {
 
-	
+
 	let selectedId = null;
 	const endpoint = 'http://localhost:3000/dashboard/symptoms';
 	const checkOptions = document.querySelectorAll('input[type="checkbox"][name="symptoms"]');
-   
+
 
 	// Get the selected radio button
 	checkOptions.forEach(options => {
@@ -88,28 +88,33 @@ function selectionProcess(result) {
 				result.symptoms.push(options.value);
 			}
 			else {
-                
-                selectedId = options.id;
-                
+
+				selectedId = options.id;
+
 				result.symptoms.push(selectedId);
 			}
 
 		}
 	});
 	console.log(result.symptoms);
-    disease.innerHTML = '';
+	disease.innerHTML = '';
 	// If 'none' is selected, stop the recursion
 	if (selectedId === 'none') {
+		questions.innerHTML = '';
 
-		axios.post(endpoint , result)
+		axios.post(endpoint, result)
 			.then(response => {
+
 				console.log(response);
+				const resultdiv = document.createElement('div');
+				resultdiv.innerText = `you have disease ${response.data}`;
+				questions.appendChild(resultdiv);
 				return;
 			})
 			.catch(error => {
 				console.log(error);
 			});
-		
+
 	}
 
 
