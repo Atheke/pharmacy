@@ -94,57 +94,136 @@ h2{
 }
 
 /* allergy section */
-.allergy-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30%;
 
+
+.add-allergy-button-container {
+  display: flex;
+  justify-content: center;
 }
 
-allergy-items{
-    font-size: 4em;
-    font-weight: 300;
+.add-allergy-button {
+  background-color: #fff; 
+  color: #3bb398; 
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding for the button */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.add-allergy-button:hover {
+  background-color: #0056b3; /* Darker blue color on hover */
+}
+
+
+  .Library-container {
+    margin-top: 30px;
+    color: rgb(74, 150, 117);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.Library-container > div {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.Library-container > div:hover {
+    transform: translateY(-5px);
 }
 
 .allergydiv {
     display: none;
-  }
-  
-  .form {
+}
+
+.form {
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(222, 207, 207, 0.5);
-    transform: scale(1.1);
-  }
-  .form-contents {
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-contents {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
-    gap: 2rem;
-    border: 2px solid rgb(19, 16, 16);
-  }
-  
-  .hidden{
-      display: none;
-  }
-  .buttons {
+    gap: 20px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.form .buttons {
     display: flex;
-    gap: 1rem;
-  }
-  
-  .Library-container {
-    margin-top: 30px;
-    color: rgb(74, 150, 117);
-    display: flex;
-    padding-left: 2rem;
-    gap: 3rem;
-  }
+    justify-content: space-between;
+    width: 100%;
+}
+
+.form .proceed {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.form .close {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.form .proceed:hover {
+    background-color: #388e3c;
+}
+
+.form .close:hover {
+    background-color: #c62828;
+}
+
+.hidden {
+    display: none;
+}
+
 
 /* end of allergy section */
 
@@ -163,94 +242,240 @@ allergy-items{
 }
 
 
-/* patient history section */
+/*patient history section */
+
+
+.add-history-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.add-history-button {
+  background-color: #fff; 
+  color: #3bb398; 
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding for the button */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.add-history-button:hover {
+  background-color: #0056b3; /* Darker blue color on hover */
+}
+
+
+.Library-container2 {
+  margin-top: 30px;
+  color: rgb(74, 150, 117);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.Library-container2 > div {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.Library-container2 > div:hover {
+  transform: translateY(-5px);
+}
+
 .historydiv {
-    display: none;
-  }
-  
-  .historyForm{
-      display: none;
-  }
-  
-  .form-contents2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    gap: 2rem;
-    border: 2px solid rgb(19, 16, 16);
-  }
-  
-  .form2 {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(222, 207, 207, 0.5);
-    transform: scale(1.1);
-  }
-  .history-box {
-    background-color: #1ebd4b;
-    padding: 10px;
-    border: 1px solid #110f0f;
-    border-radius: 5px;
-    max-width: 300px;
-    text-align: left;
-  }
-  
-  .history-box p {
-    margin: 0;
-  }
-  
-  .history-box button.cancel {
-    background-color: #dc3545;
-    color: #080404;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .history-box button.cancel:hover {
-    background-color: #c82333;
-  }
+  display: none;
+}
+
+.historyForm{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  visibility: hidden;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(222, 207, 207, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-contents2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.historyForm input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.historyForm .buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.historyForm .s2 {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.historyForm .c2 {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.historyForm .s2:hover {
+  background-color: #388e3c;
+}
+
+.historyForm .c2:hover {
+  background-color: #c62828;
+}
+
+
+
   /* current medication div*/
-  .medicationdiv {
-    display: none;
-  }
+
+
   
-  .form-contents3 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    gap: 2rem;
-    border: 2px solid rgb(19, 16, 16);
-  }
-  
-  .form3 {
-    height: 100%;
+.add-medication-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.add-medication-button {
+  background-color: #fff; 
+  color: #3bb398; 
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding for the button */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.add-medication-button:hover {
+  background-color: #0056b3; /* Darker blue color on hover */
+}
+
+ .Library-container3 {
+  margin-top: 30px;
+  color: rgb(74, 150, 117);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.Library-container3 > div {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.Library-container3 > div:hover {
+  transform: translateY(-5px);
+}
+
+.medicationdiv {
+  display: none;
+}
+
+.form-contents3 input {
     width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.form-contents3 .buttons {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(222, 207, 207, 0.5);
-    transform: scale(1.1);
-  }
-  
-  .Library-container3 {
-    margin-top: 30px;
-    color: rgb(74, 150, 117);
-    display: flex;
-    padding-left: 2rem;
-    gap: 3rem;
-  }
-  
-  .medication-box{
-      border: 1px solid #3bb398;
-  }
-  
+    justify-content: space-between;
+    width: 100%;
+}
+
+.form-contents .s3 {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.form-contents3 .c3 {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.form-contents3 .s3:hover {
+    background-color: #388e3c;
+}
+
+.form-contents3 .c3:hover {
+    background-color: #c62828;
+}
+ 
+
+ 

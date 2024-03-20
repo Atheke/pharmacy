@@ -14,7 +14,7 @@ const disehead = document.querySelector('.disehead');
 
 addHistoryButton.addEventListener('click', () => {
  
-  form2.style.display = 'block';
+  form2.style.visibility = 'visible';
   document.getElementById('disease').value = '';
   header.innerText = '';
 });
