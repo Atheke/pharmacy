@@ -19,7 +19,6 @@ background:#dfe9f5;
 }
 
 .container2{
-
  flex:1;
 }
 
@@ -225,17 +224,103 @@ h2{
 }
 
 
-  .allergy-box{
-    border: 1px solid #3bb398;
-  }
-
+  
 /* end of allergy section */
 
+
+
+
 /* symptom checker*/
+.container3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; /* Full height of the viewport */
+}
+
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2), 0px 8px 20px rgba(0, 0, 0, 0.1); /* Box shadow with stronger bottom and right sides */
+}
+
+
+.questions h2 {
+  font-size: 1.5em;
+  font-weight: 300;
+  color: #3bb398;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  
+  
+}
+
+.age {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 200px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.age:hover {
+  background-color: #e9ecef;
+}
+
+.age.selected {
+  background-color: #007bff;
+  color: white;
+}
+
+.age.selected label {
+  color: white;
+}
+
+.age input[type="checkbox"] {
+  margin-right: 10px;
+  font-size: 1em; /* Adjust font size */
+  padding: 10px; /* Adjust padding */
+}
+
+.questions button {
+  background-color: #3bb398;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 200px;
+}
+
+.questions button:hover {
+  background-color: #0056b3;
+}
+
+
+
+/* 
 .questions{
    
     visibility: hidden;
-}
+}   */
 
 .durationQuestions{
     visibility: hidden;
@@ -244,6 +329,9 @@ h2{
 .diseaseQuestions{
     visibility: hidden;
 }
+
+
+
 
 
 /*patient history section */
@@ -482,4 +570,71 @@ h2{
 }
  
 
- 
+ /* health resources */
+
+ .container4 {
+  display: none;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #dfe9f5; /* White background with slight transparency */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.cl1 {
+ color: rgb(74, 150, 117);
+ font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.info-box {
+  color: rgb(74, 150, 117);
+  display: inline-block;
+  margin: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 5px;
+  width: 45%;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.info-box:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+}
+
+.cl2{
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.cl3 {
+  line-height: 1.5;
+}
+
+.who-box,
+.healthline-box {  /* Remove background image styles */
+  background-image: none;
+}
+
+.who-link,
+.healthline-link {  /* Apply transition to both links */
+  background-color: #428bca;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  display: block;
+  margin-top: 15px;
+  transition: background-color 0.2s ease-in-out; /* Add transition for background color */
+}
+
+.who-link:hover,
+.healthline-link:hover { /* Change background color on hover */
+  background-color: #1b9b74; /* Adjust hover color as needed */
+}
+
