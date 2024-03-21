@@ -8,6 +8,7 @@ checkSymptoms.addEventListener('click', () => {
     allergydiv.style.display = 'none';
     medicationdiv.style.display = 'none';
     historydiv.style.display = 'none';
+    box.style.display = 'none';
     questions.style.visibility = 'visible';
     console.log("works");
     
@@ -46,7 +47,7 @@ checkSymptoms.addEventListener('click', () => {
 function selectionProcess(result) {
 
     let selectedId = null;
-    const endpoint = 'http://localhost:3000/admin/getdis';
+    const endpoint = 'http://localhost:3000/dashboard/symptoms';
     const checkOptions = document.querySelectorAll('input[type="checkbox"][name="symptoms"]');
 	result.symptoms = [];
 	
