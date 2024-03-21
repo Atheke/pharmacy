@@ -65,7 +65,8 @@ async function allthebest(req,count,nam)
                             console.log("sdfs")   
                             const a={
                                 nam:m.nameofdiease,
-                                treatment:m.treatment
+                                treatment:m.treatment,
+                                end:"end"
                             }
                             console.log(a,"xcxfs");
                             ans=a;
