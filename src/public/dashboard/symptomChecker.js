@@ -18,6 +18,9 @@ checkSymptoms.addEventListener('click', () => {
 
     submit.addEventListener('click', () => {
 
+		const result = {
+			symptoms: []
+		};
         // options.forEach(option => {
 
         //     if (option.checked) {
@@ -45,10 +48,8 @@ function selectionProcess(result) {
     let selectedId = null;
     const endpoint = 'http://localhost:3000/dashboard/symptoms';
     const checkOptions = document.querySelectorAll('input[type="checkbox"][name="symptoms"]');
-
-	const result = {
-        symptoms: []
-    };
+	result.symptoms = [];
+	
     // Get the selected radio button
     checkOptions.forEach(options => {
         if (options.checked) {
@@ -131,21 +132,8 @@ function selectionProcess(result) {
                 questions.appendChild(document.createElement('br'));
             }
 
-            //create none option
-            const radioButton = document.createElement('input');
-            radioButton.type = 'checkbox';
-            radioButton.id = 'none'; // Set id based on symptom
-            radioButton.value = 'none';
-            radioButton.name = 'symptoms';
-
-            const label = document.createElement('label');
-            label.htmlFor = 'none';
-            label.textContent = 'none';
-
-            questions.appendChild(radioButton);
-            questions.appendChild(label);
-            questions.appendChild(document.createElement('br'));
-
+            
+            
             //create submit button
             const submit = document.createElement('button');
             submit.innerText = 'Submit';
