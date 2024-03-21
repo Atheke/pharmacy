@@ -19,7 +19,6 @@ background:#dfe9f5;
 }
 
 .container2{
-
  flex:1;
 }
 
@@ -235,7 +234,15 @@ h2{
 
 
 /* symptom checker*/
- .questions {
+.container3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; /* Full height of the viewport */
+}
+
+
+.questions {
   display: flex;
   flex-direction: column;
   visibility: hidden;
@@ -246,22 +253,27 @@ h2{
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  background-color: #f0f0f0; 
+  background-color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2), 0px 8px 20px rgba(0, 0, 0, 0.1); /* Box shadow with stronger bottom and right sides */
 }
 
-.questions h3 {
+
+.questions h2 {
   font-size: 1.5em;
   font-weight: 300;
-  color: rgb(74, 150, 117);
+  color: #3bb398;
 }
 
 .options {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%;
+  
+  
 }
 
-.option {
+.age {
   background-color: #fff;
   padding: 20px;
   border-radius: 4px;
@@ -269,29 +281,29 @@ h2{
   max-width: 200px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  display: flex;
-  align-items: center;
 }
 
-.option:hover {
+.age:hover {
   background-color: #e9ecef;
 }
 
-.option.selected {
+.age.selected {
   background-color: #007bff;
   color: white;
 }
 
-.option.selected label {
+.age.selected label {
   color: white;
 }
 
-.option input[type="checkbox"] {
+.age input[type="checkbox"] {
   margin-right: 10px;
+  font-size: 1em; /* Adjust font size */
+  padding: 10px; /* Adjust padding */
 }
 
 .questions button {
-  background-color: #007bff;
+  background-color: #3bb398;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -303,9 +315,7 @@ h2{
 
 .questions button:hover {
   background-color: #0056b3;
-} 
-
-
+}
 
 
 
