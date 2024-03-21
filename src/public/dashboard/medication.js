@@ -32,7 +32,7 @@ currentMedication.addEventListener('click', () => {
 
     allergydiv.style.display = 'none';
     historydiv.style.display = 'none';
-    questions.style.visibility = 'none';
+    questions.style.visibility = 'hidden';
 
     getData();
     // Event listener for the "Submit" button

@@ -23,7 +23,7 @@ patientHistory.addEventListener('click', () => {
 
   allergydiv.style.display = 'none';
   medicationdiv.style.display = 'none';
-  questions.style.visibility = 'none';
+  questions.style.visibility = 'hidden';
 	showHistory();
 
 });

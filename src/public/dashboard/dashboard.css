@@ -102,7 +102,7 @@ h2{
 
 }
 
-allergy-items{
+.allergy-items{
     font-size: 4em;
     font-weight: 300;
 }
@@ -144,6 +144,10 @@ allergy-items{
     display: flex;
     padding-left: 2rem;
     gap: 3rem;
+  }
+
+  .allergy-box{
+    border: 1px solid #3bb398;
   }
 
 /* end of allergy section */
