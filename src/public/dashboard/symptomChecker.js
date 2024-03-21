@@ -14,7 +14,7 @@ checkSymptoms.addEventListener('click', () => {
     let selected = null;
     const container = document.querySelector('.container2');
     const submit = document.querySelector('#submit');
-    // const options = document.querySelectorAll('input[type="radio"][name="severity"]');
+    const options = document.querySelectorAll('input[type="checkbox"][name="symptoms"]');
 
     submit.addEventListener('click', () => {
 
@@ -28,18 +28,11 @@ checkSymptoms.addEventListener('click', () => {
         //         result.symptoms.push(selected);
         //     }
         // })
+		// count++;
         // console.log(result.symptoms);
         selectionProcess(result);
     });
-
-
-
-    //selection process exits when the option selected is none
-    // axios.post('http://localhost:3000/dashboard/symptoms', result)
-    // 	.then(response => { })
-    // 	.catch(error => {
-    // 		console.log(error);
-    // 	});
+	
 });
 
 
@@ -64,8 +57,8 @@ function selectionProcess(result) {
             else {
 
                 selectedId = options.id;
-
                 result.symptoms.push(selectedId);
+				
             }
 
         }
@@ -117,6 +110,8 @@ function selectionProcess(result) {
             questions.innerHTML = '';
             console.log(response);
             // Display response as radio buttons
+			const optionsdiv = document.createElement('div');
+			optionsdiv.classList.add('options');
             for (let i = 0; i < response.data.length; i++) {
                 const radioButton = document.createElement('input');
                 radioButton.type = 'checkbox';
@@ -127,11 +122,11 @@ function selectionProcess(result) {
                 label.htmlFor = radioButton.id;
                 label.textContent = response.data[i];
 
-                questions.appendChild(radioButton);
-                questions.appendChild(label);
-                questions.appendChild(document.createElement('br'));
+                optionsdiv.appendChild(radioButton);
+                optionsdiv.appendChild(label);
+                optionsdiv.appendChild(document.createElement('br'));
             }
-
+			questions.appendChild(optionsdiv);
             
             
             //create submit button
