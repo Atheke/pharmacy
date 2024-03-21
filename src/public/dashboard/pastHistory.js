@@ -23,6 +23,7 @@ patientHistory.addEventListener('click', () => {
 
   allergydiv.style.display = 'none';
   medicationdiv.style.display = 'none';
+  box.style.display = 'none';
   questions.style.visibility = 'hidden';
 	showHistory();
 

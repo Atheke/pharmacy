@@ -32,6 +32,7 @@ currentMedication.addEventListener('click', () => {
 
     allergydiv.style.display = 'none';
     historydiv.style.display = 'none';
+    box.style.display = 'none';
     questions.style.visibility = 'hidden';
 
     getData();
