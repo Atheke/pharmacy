@@ -224,10 +224,7 @@ h2{
 }
 
 
-  .allergy-box{
-    border: 1px solid #3bb398;
-  }
-
+  
 /* end of allergy section */
 
 
@@ -573,4 +570,71 @@ h2{
 }
  
 
- 
+ /* health resources */
+
+ .container4 {
+  display: none;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #dfe9f5; /* White background with slight transparency */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.cl1 {
+ color: rgb(74, 150, 117);
+ font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.info-box {
+  color: rgb(74, 150, 117);
+  display: inline-block;
+  margin: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 5px;
+  width: 45%;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.info-box:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+}
+
+.cl2{
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.cl3 {
+  line-height: 1.5;
+}
+
+.who-box,
+.healthline-box {  /* Remove background image styles */
+  background-image: none;
+}
+
+.who-link,
+.healthline-link {  /* Apply transition to both links */
+  background-color: #428bca;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  display: block;
+  margin-top: 15px;
+  transition: background-color 0.2s ease-in-out; /* Add transition for background color */
+}
+
+.who-link:hover,
+.healthline-link:hover { /* Change background color on hover */
+  background-color: #1b9b74; /* Adjust hover color as needed */
+}
+

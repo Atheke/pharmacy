@@ -8,6 +8,7 @@ checkSymptoms.addEventListener('click', () => {
     allergydiv.style.display = 'none';
     medicationdiv.style.display = 'none';
     historydiv.style.display = 'none';
+    box.style.display = 'none';
     questions.style.visibility = 'visible';
     console.log("works");
     
