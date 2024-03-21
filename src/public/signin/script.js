@@ -3,28 +3,29 @@ const submitAdmin = document.querySelector('#adminSubmitBtn');
 
 
 
-submitUser.addEventListener('click', function (event) {
-	var form = event.target.closest('form');
-	var userid = document.getElementById('UserId').value;
-	var password = document.getElementById('UserPassword').value;
-	form.reset();
+submitUser.addEventListener('click' , function(event)
+{
+		var form = event.target.closest('form');
+			var userid = document.getElementById('UserId').value;
+			var password = document.getElementById('UserPassword').value;
+		form.reset();
 
 
 
-	const credentials = {
-		email: userid,
-		password: password
-	};
+const credentials = {
+    email: userid,
+    password: password
+};
 
-	const serverUrl = 'http://localhost:3000/login';
+const serverUrl = 'http://localhost:3000/login';
 
-	axios.post(serverUrl, credentials)
-		.then(response => {
+axios.post(serverUrl, credentials)
+.then(response => {
 			window.location.href = '/dashboard'
-		})
-		.catch(error => {
-			console.log(error);
-			document.getElementById('loginStatus').innerText = "Invalid credentials";
+})
+ .catch(error => {
+		console.log(error);
+		document.getElementById('loginStatus').innerText = "Invalid credentials";
 		})
 
 }
@@ -32,34 +33,20 @@ submitUser.addEventListener('click', function (event) {
 
 
 
-submitAdmin.addEventListener('click', function (event) {
-	var form = event.target.closest('form');
+submitAdmin.addEventListener('click' , function(event)
+{
+			var form = event.target.closest('form');
 
-	var userId = document.getElementById('AdminUserId').value;
-	var password = document.getElementById('AdminPassword').value;
+			var userId = document.getElementById('AdminUserId').value;
+			var password = document.getElementById('AdminPassword').value;
 
-	verification(userId, password);
-	form.reset();
-	const credentials = {
-		email: adminid,
-		password: password
-	};
-	axios.post(serverUrl, credentials)
-		.then(response => {
-			window.location.href = '/adminDashboard';
-		})
-		.catch(error => {
-			console.log(error);
-			document.getElementById('loginStatus').innerText = "Invalid credentials";
-		})
-});
+		verification(userId , password);
+		form.reset();
+	});
 
 
-
-
-
-
-function verification(userId, password) {
-	console.log("UserId:", userId);
-	console.log("Password:", password);
+function verification(userId , password)
+{
+	console.log("UserId:",userId);
+	console.log("Password:",password);
 }

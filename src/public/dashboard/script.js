@@ -2,67 +2,73 @@
 //const patientHistory = document.getElementById('patientHistory');
 //const currentMedication = document.getElementById('currentMedication');
 //const patientAllergies = document.getElementById('patientAllergies');
-const appointmentScheduler = document.getElementById("appointments");
-const box = document.querySelector('.container4');
-const health = document.querySelector("#health");
+const appointmentScheduler = document.getElementById('appointments');
+const health = document.getElementById('health');
 // const checkSymptoms = document.getElementById('checkSymptoms');
+const emergencyServices = document.getElementById('emergencyServices');
+const logout = document.getElementById('logout');
+const dashboardItems = document.querySelectorAll('.dashboard-item');
 
-const logout = document.getElementById("logout");
-const dashboardItems = document.querySelectorAll(".dashboard-item");
+dashboardItems.forEach(item => {
+	item.addEventListener('click', function () {
+		// Toggle the 'selected' class on click
+		this.classList.toggle('selected');
 
-dashboardItems.forEach((item) => {
-  item.addEventListener("click", function () {
-    // Toggle the 'selected' class on click
-    this.classList.toggle("selected");
-
-    // Deselect other items
-    dashboardItems.forEach((otherItem) => {
-      if (otherItem !== this) {
-        otherItem.classList.remove("selected");
-      }
-    });
-  });
+		// Deselect other items
+		dashboardItems.forEach(otherItem => {
+			if (otherItem !== this) {
+				otherItem.classList.remove('selected');
+			}
+		});
+	});
 });
 
-axios
-  .get("/dashboard/username")
-  .then((response) => {
-    console.log(response);
-    document.getElementById("userName").innerText = response.data;
-  })
-  .catch((error) => {
-    console.log(error);
-  });
 
-health.addEventListener("click", function () {
-  console.log("working");
-  box.style.display = 'block';
-  allergydiv.style.display = 'none';
-  medicationdiv.style.display = 'none';
-  historydiv.style.display = 'none';
-  questions.style.visibility = 'hidden';
+axios.get("/dashboard/username")
+	.then(response => {
+		console.log(response);
+		document.getElementById('userName').innerText = response.data;
+	})
+	.catch(error => {
+		console.log(error);
+	});
 
-  const infoBoxes = document.querySelectorAll(".info-box");
 
-  infoBoxes.forEach((box) => {
-    box.addEventListener("click", () => {
-      const link = box.querySelector("a");
-      window.location.href = link.href;
-    });
-  });
+health.addEventListener('click', function () {
+	console.log("working");
+	const endpoint = 'http://localhost:3000/dashboard/healthInfo';
+
+	axios.get(endpoint)
+		.then(response => {
+
+			console.log(response);
+
+		})
+		.catch(error => {
+			console.log(error);
+		});
+
 });
 
-appointmentScheduler.addEventListener("click", () => {
-  //stuff
+
+appointmentScheduler.addEventListener('click', () => {
+	//stuff
 });
 
-logout.addEventListener("click", () => {
-  axios
-    .get("http://localhost:3000/logout")
-    .then((response) => {
-      window.location.href = "/";
-    })
-    .error((error) => {
-      console.log(error);
-    });
+
+
+
+
+
+
+logout.addEventListener('click', () => {
+	axios.get('http://localhost:3000/logout')
+		.then(response => {
+			window.location.href = '/';
+		}).error(error => {
+			console.log(error);
+
+		});
 });
+
+

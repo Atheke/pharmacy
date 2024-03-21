@@ -13,7 +13,6 @@ let i = 0;// counter for the object index
 patientAllergies.addEventListener('click', () => {
 
   questions.style.visibility = 'hidden';
-  box.style.display = 'none';
   medicationdiv.style.display = 'none';
   historydiv.style.display = 'none';
 

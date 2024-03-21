@@ -7,6 +7,7 @@ let nextfilter =new Set();
 let filter = {};
 
 function findDeease(patientSym){
+    try{
     filter={};
     for(Des in data){
         let count =0;
@@ -36,11 +37,14 @@ function findDeease(patientSym){
     //   }   
       console.log(filter);
       return (nextLayer(filter,patientSym));
+    }catch(err){
+    console.error(err);
     }
-    
+}
 
     
 function nextLayer(filter,t){
+    try{
     nextfilter.clear();
     for(i in filter){
         filter[i].forEach(k => {
@@ -52,16 +56,23 @@ function nextLayer(filter,t){
     let tmp=Array.from(nextfilter)
     console.log(typeof tmp,tmp);
     return tmp;
+    }catch(err){
+    console.error(err);
+    }
 }
 
 
 
 function checker (req) {
+    try{
     const systom = req;
     console.log(systom);
     //console.log(t);
     let ans=findDeease(systom);
     return ans;
+     }catch(err){
+    console.error(err);
+    }
 }
 
 

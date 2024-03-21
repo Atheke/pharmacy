@@ -4,6 +4,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookie_session = require('cookie-session');
 
+const {adminRouter} = require('./router/admin.router');
+
 const {createUser} = require('./model/createuser');
 
 const {checkUser} = require('./service/authentication');
@@ -42,6 +44,8 @@ app.use(express.static(path.join(__dirname,'public')));
 
 
 //app.use()
+
+app.use('/admin',adminRouter);
 
 app.post('/login',async(req,res)=>{
   const statu = await checkUser(req);

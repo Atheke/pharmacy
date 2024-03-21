@@ -4,6 +4,7 @@ const {checkUser} = require('../service/authentication');
 
 
 async function createUser(req){
+    try{
     const user=req.body; 
     const userData = Object.assign(user,{
         dashboard:{
@@ -20,7 +21,7 @@ async function createUser(req){
     const permissions = await checkUser(req);
     //console.log(userData);
     
-try{
+
 
     if(!permissions){
     await userCreatedb.updateOne({

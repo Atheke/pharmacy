@@ -1,6 +1,6 @@
 const userDataBase= require('./createuser.mongo');
 async function allergies(req) {
-
+try{
    const user = req.session.userId;
    const data = await userDataBase.findOne({
         email:user,
@@ -8,6 +8,9 @@ async function allergies(req) {
    const answer = data.dashboard.allergers;
    console.log(answer);
    return answer;
+}catch(err){
+   console.error(err);
+}
 }
 // async function appointment(req) {
 
@@ -19,25 +22,37 @@ async function allergies(req) {
 //     return answer;
 //  }
  async function medication(req) {
-
+   try{
     const user = req.session.userId;
     const data= await userDataBase.findOne({
          email:user,
     });
     const answer = data.dashboard.currentMedication;
     return answer;
- }
- async function history(req) {
+   }catch(err){
+      console.error(err);
+   }
 
+ }
+
+ 
+ async function history(req) {
+   try{
     const user = req.session.userId;
     const data= await userDataBase.findOne({
          email:user,
     });
     const answer = data.dashboard.patientHistory;
     return answer;
+   }catch(err){
+      console.error(err);
+   }
  }
 
+
+
  async function info(req) {
+   try{
 
     const user = req.session.userId;
     const data= await userDataBase.findOne({
@@ -45,6 +60,9 @@ async function allergies(req) {
     });
     const answer = data.dashboard.healthInfo;
     return answer;
+   }catch(err){
+      console.error(err);
+   }
  }
 //  async function symptoms(req) {
 
@@ -56,6 +74,7 @@ async function allergies(req) {
 //     return answer;
 //  }
 async function userName(req) {
+   try{
 
    const user = req.session.userId;
    const data= await userDataBase.findOne({
@@ -64,6 +83,9 @@ async function userName(req) {
    const answer = data.fullname;
    console.log(answer);
    return answer;
+   }catch(err){
+   console.error(err);
+}
 }
 
 
