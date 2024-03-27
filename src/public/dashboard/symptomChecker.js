@@ -1,6 +1,6 @@
 const checkSymptoms = document.getElementById('checkSymptoms');
 const questions = document.querySelector('.questions');
-let count = 0;
+
 
 
 checkSymptoms.addEventListener('click', () => {
@@ -15,8 +15,7 @@ checkSymptoms.addEventListener('click', () => {
     let selected = null;
     const container = document.querySelector('.container2');
     const submit = document.querySelector('#submit');
-    const options = document.querySelectorAll('input[type="checkbox"][name="symptoms"]');
-
+    
     submit.addEventListener('click', () => {
 
         const result = {
@@ -40,8 +39,9 @@ checkSymptoms.addEventListener('click', () => {
 function selectionProcess(result) {
 
     let selectedId = null;
-    const endpoint = 'http://localhost:3000/dashboard/symptoms';
+    const endpoint = 'http://localhost:3000/admin/getdis';
     const checkOptions = document.querySelectorAll('input[type="checkbox"][name="symptoms"]');
+    console.log(checkOptions);
     result.symptoms = [];
 
     // Get the selected radio button
@@ -64,7 +64,7 @@ function selectionProcess(result) {
 
         }
     });
-    count++;
+   
     console.log(result.symptoms);
 
 
@@ -115,21 +115,26 @@ function selectionProcess(result) {
                 questions.innerHTML = '';
                 console.log(response);
                 // Display response as radio buttons
+                const oneDArray = response.data.reduce((acc, curr) => acc.concat(curr), []);
                 const optionsdiv = document.createElement('div');
                 optionsdiv.classList.add('options');
-                for (let i = 0; i < response.data.length; i++) {
+                for(let i = 0; i <= response.data.length; i++) {
+                    console.log('working');
+                    console.log(response.data[i]);
+                    const onemoreDiv = document.createElement('div');
                     const radioButton = document.createElement('input');
                     radioButton.type = 'checkbox';
-                    radioButton.id = response.data[i]; // Set id based on symptom
+                    radioButton.id = oneDArray[i]; // Set id based on symptom
                     radioButton.name = 'symptoms';
 
                     const label = document.createElement('label');
                     label.htmlFor = radioButton.id;
-                    label.textContent = response.data[i];
+                    label.textContent = oneDArray[i];
 
-                    optionsdiv.appendChild(radioButton);
-                    optionsdiv.appendChild(label);
-                    optionsdiv.appendChild(document.createElement('br'));
+                    onemoreDiv.appendChild(radioButton);
+                    onemoreDiv.appendChild(label);
+                    onemoreDiv.appendChild(document.createElement('br'));
+                    optionsdiv.appendChild(onemoreDiv);
                 }
                 questions.appendChild(optionsdiv);
 
@@ -138,30 +143,8 @@ function selectionProcess(result) {
                 const submit = document.createElement('button');
                 submit.innerText = 'Submit';
                 submit.id = 'submit';
-                questions.appendChild(submit);
-
-                // If the user selects the none option all the other option selected gets unselectedX
-
-                // let checkboxes = document.querySelectorAll('input[type="checkbox"][name="symptoms"]');
-
-                // checkboxes.forEach(checkbox => {
-                //     checkbox.addEventListener('change', () => {
-                //         if (checkbox === noneCheckbox && checkbox.checked) {
-                //             // If "none" checkbox is checked, uncheck all other checkboxes
-                //             checkboxes.forEach(cb => {
-                //                 if (cb !== noneCheckbox) {
-                //                     cb.checked = false;
-                //                 }
-                //             });
-                //         } else if (checkbox.checked && noneCheckbox.checked) {
-                //             // If any other checkbox is checked while "none" checkbox is checked, uncheck "none"
-                //             noneCheckbox.checked = false;
-                //         }
-                //     });
-                // });
-                // Continue the process recursively
-
-
+                questions.appendChild(submit);    
+              
                 submit.addEventListener('click', () => selectionProcess(result));
 
             }
@@ -173,65 +156,4 @@ function selectionProcess(result) {
         });
 
 
-    // // Send the selected result to the server
-    // axios.post(endpoint, result)
-    //     .then(response => {
-    //         // Clear previous radio buttons
-
-    //         questions.innerHTML = '';
-    //         console.log(response);
-    //         // Display response as radio buttons
-    // 		const optionsdiv = document.createElement('div');
-    // 		optionsdiv.classList.add('options');
-    //         for (let i = 0; i < response.data.length; i++) {
-    //             const radioButton = document.createElement('input');
-    //             radioButton.type = 'checkbox';
-    //             radioButton.id = response.data[i]; // Set id based on symptom
-    //             radioButton.name = 'symptoms';
-
-    //             const label = document.createElement('label');
-    //             label.htmlFor = radioButton.id;
-    //             label.textContent = response.data[i];
-
-    //             optionsdiv.appendChild(radioButton);
-    //             optionsdiv.appendChild(label);
-    //             optionsdiv.appendChild(document.createElement('br'));
-    //         }
-    // 		questions.appendChild(optionsdiv);
-
-
-    //         //create submit button
-    //         const submit = document.createElement('button');
-    //         submit.innerText = 'Submit';
-    //         submit.id = 'submit';
-    //         questions.appendChild(submit);
-
-    //         // If the user selects the none option all the other option selected gets unselectedX
-
-    //         // let checkboxes = document.querySelectorAll('input[type="checkbox"][name="symptoms"]');
-
-    //         // checkboxes.forEach(checkbox => {
-    //         //     checkbox.addEventListener('change', () => {
-    //         //         if (checkbox === noneCheckbox && checkbox.checked) {
-    //         //             // If "none" checkbox is checked, uncheck all other checkboxes
-    //         //             checkboxes.forEach(cb => {
-    //         //                 if (cb !== noneCheckbox) {
-    //         //                     cb.checked = false;
-    //         //                 }
-    //         //             });
-    //         //         } else if (checkbox.checked && noneCheckbox.checked) {
-    //         //             // If any other checkbox is checked while "none" checkbox is checked, uncheck "none"
-    //         //             noneCheckbox.checked = false;
-    //         //         }
-    //         //     });
-    //         // });
-    //         // Continue the process recursively
-
-
-    //         submit.addEventListener('click', () => selectionProcess(result));
-    //     })
-    //     .catch(error => {
-    //         // Handle error
-    //         console.log(error);
-    //     });
 }
