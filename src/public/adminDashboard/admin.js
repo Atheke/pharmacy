@@ -39,8 +39,7 @@ function handleDiseaseEntry() {
     <label for="bp">Please enter the blood pressure range of the patient for this disease</label>
     <input type="text" id="bp" placeholder="blood pressure" required><br>
     <div class="buttons">
-      <button id="submit">Submit</button>
-    `;
+      <button id="submit">Submit</button>`;
     const submission = document.querySelector('#submit');
     submission.addEventListener('click', handleVitalsEntry);
 }
